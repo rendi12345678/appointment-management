@@ -5,18 +5,17 @@ import { useRouter } from "next/navigation";
 
 const AppointmentCreationPage: React.FC = () => {
   const [title, setTitle] = useState("");
-  const [startDateTime, setStartDateTime] = useState("2024-01-01T08:00"); // Default start date and time
-  const [endDateTime, setEndDateTime] = useState("2024-01-01T17:00"); // Default end date and time
+  const [startDateTime, setStartDateTime] = useState("2024-01-01T08:00");
+  const [endDateTime, setEndDateTime] = useState("2024-01-01T17:00");
   const [error, setError] = useState<string | null>(null);
-  const [users, setUsers] = useState<{ _id: string; name: string }[]>([]); // Array to store user objects
-  const [selectedUsers, setSelectedUsers] = useState<string[]>([]); // Array to store selected user IDs
+  const [users, setUsers] = useState<{ _id: string; name: string }[]>([]);
+  const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
   const router = useRouter();
 
-  // Fetch users (replace with your actual user data fetching logic)
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/users"); // Replace with your user fetch endpoint
+        const response = await axios.get("http://localhost:3000/api/users");
         setUsers(response.data.users);
       } catch (err) {
         console.error("Error fetching users:", err);
@@ -29,7 +28,6 @@ const AppointmentCreationPage: React.FC = () => {
   const handleAppointmentCreation = async (e) => {
     e.preventDefault();
     try {
-      // Validate working hours
       const parsedStartTime = parseTime(startDateTime);
       const parsedEndTime = parseTime(endDateTime);
 
@@ -45,7 +43,7 @@ const AppointmentCreationPage: React.FC = () => {
         title,
         startTime: startDateTime,
         endTime: endDateTime,
-        invitedUsers: selectedUsers, // Include invited users in the request body
+        invitedUsers: selectedUsers,
       });
 
       alert("Appointment created successfully!");
@@ -54,14 +52,12 @@ const AppointmentCreationPage: React.FC = () => {
     }
   };
 
-  // Helper function to parse datetime string to hours
   const parseTime = (dateTimeString: string) => {
     const [date, time] = dateTimeString.split("T");
     const [hours, minutes] = time.split(":");
-    return parseInt(hours, 10); // Convert hours to integer
+    return parseInt(hours, 10);
   };
 
-  // Helper function to check if time is within working hours (8:00 - 17:00)
   const isValidWorkingHour = (time: number) => {
     return time >= 8 && time <= 17;
   };
