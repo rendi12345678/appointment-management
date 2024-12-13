@@ -15,7 +15,7 @@ const AppointmentCreationPage: React.FC = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/users");
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/users`);
         setUsers(response.data.users);
       } catch (err) {
         console.error("Error fetching users:", err);
@@ -24,8 +24,7 @@ const AppointmentCreationPage: React.FC = () => {
     fetchUsers();
   }, []);
 
-  // @ts-ignore
-  const handleAppointmentCreation = async (e) => {
+  const handleAppointmentCreation = async (e: any) => {
     e.preventDefault();
     try {
       const parsedStartTime = parseTime(startDateTime);
@@ -39,7 +38,7 @@ const AppointmentCreationPage: React.FC = () => {
         throw new Error("End time must be after start time");
       }
 
-      const response = await axios.post("http://localhost:3000/api/appointments", {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/appointments`, {
         title,
         startTime: startDateTime,
         endTime: endDateTime,

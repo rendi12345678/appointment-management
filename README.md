@@ -40,6 +40,7 @@ Buat file `.env.local` di direktori root dan tambahkan variabel lingkungan berik
 ```bash
 MONGO_URI=<Your MongoDB Connection String>
 JWT_SECRET=<Your JWT Secret>
+NEXT_PUBLIC_API_URL=http://localhost:3000
 ```
 
 Ganti `<Your MongoDB Connection String>` dengan string koneksi MongoDB Anda.

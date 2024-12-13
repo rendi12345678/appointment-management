@@ -11,7 +11,7 @@ const LoginPage: React.FC = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/api/login", { username });
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/login`, { username });
       alert(`Welcome, ${response.data.name}!`);
 
       router.push("/");
