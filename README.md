@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Appointment Management
 
-## Getting Started
+Ini adalah sistem manajemen janji temu yang dibangun dengan [Next.js](https://nextjs.org/) dan [MongoDB](https://www.mongodb.com/).
 
-First, run the development server:
+## Prasyarat
+
+Sebelum memulai, pastikan Anda memiliki perangkat lunak berikut yang terpasang:
+
+- **Node.js**: [Unduh Node.js](https://nodejs.org/)
+- **MongoDB**: [Panduan Instalasi MongoDB](https://www.mongodb.com/docs/manual/installation/)
+- **Git**: [Unduh Git](https://git-scm.com/downloads)
+
+## Setup
+
+### 1. Clone Repositori
+
+```bash
+git clone https://github.com/rendi12345678/appointment-management.git
+cd appointment-management
+```
+
+### 2. Install Dependencies
+
+Install dependensi yang diperlukan menggunakan npm atau yarn.
+
+```bash
+npm install
+```
+
+atau jika menggunakan yarn:
+
+```bash
+yarn install
+```
+
+### 3. Siapkan Variabel Lingkungan
+
+Buat file `.env.local` di direktori root dan tambahkan variabel lingkungan berikut:
+
+```bash
+MONGO_URI=<Your MongoDB Connection String>
+JWT_SECRET=<Your JWT Secret>
+```
+
+Ganti `<Your MongoDB Connection String>` dengan string koneksi MongoDB Anda.
+
+### 4. Jalankan Server Pengembangan
+
+Jalankan server pengembangan dengan perintah berikut:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+atau jika menggunakan yarn:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Aplikasi akan berjalan di `http://localhost:3000`.
 
-## Learn More
+### 5. Akses Aplikasi
 
-To learn more about Next.js, take a look at the following resources:
+Setelah server berjalan, buka browser Anda dan kunjungi [http://localhost:3000](http://localhost:3000). Anda sekarang dapat mulai mengelola janji temu.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Pengujian
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Untuk menjalankan pengujian pada proyek ini, gunakan perintah berikut:
 
-## Deploy on Vercel
+```bash
+npm run test
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+atau jika menggunakan yarn:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+yarn test
+```
+
+## Kontribusi
+
+1. Fork repositori.
+2. Buat branch baru (`git checkout -b feature/fitur-anda`).
+3. Lakukan perubahan dan commit (`git commit -am 'Tambahkan fitur baru'`).
+4. Push ke branch tersebut (`git push origin feature/fitur-anda`).
+5. Buka pull request.
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah Lisensi MIT.
